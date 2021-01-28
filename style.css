@@ -1,0 +1,26 @@
+
+html, body {
+    font-family: 'Libre Baskerville', serif;
+    min-height: 100%;
+    
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#canvas {
+    min-width: 1000px;
+    min-height: 600px;
+}
+
+svg {
+    background-color: honeydew;
+}
+
+#tooltip{
+    visibility: hidden;
+}

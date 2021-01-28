@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+    <title>Choropleth Map</title>
+</head>
+
+<body>
+    <h2 id='title'>US Higher Education Attainment</h2>
+    <div id='description'>
+        Levels of education attainment of US adults over 25.
+    </div>
+    <div id='tooltip'>
+        b
+    </div>
+    <svg id='canvas'>
+
+    </svg>
+    <svg id='legend'>
+        <g>
+            <rect x="10" , y="0" , width="40" , height="40" , fill="skyblue"></rect>
+            <text x="60" , y="20" , fill="black">Less Than 15%</text>
+        </g>
+        <g>
+            <rect x="10" , y="40" , width="40" , height="40" , fill="mediumseagreen"></rect>
+            <text x="60" , y="60" , fill="black">15% to 30%</text>
+        </g>
+        <g>
+            <rect x="10" , y="80" , width="40" , height="40" , fill="mediumslateblue"></rect>
+            <text x="60" , y="100" , fill="black">30% to 45%</text>
+        </g>
+        <g>
+            <rect x="10" , y="120" , width="40" , height="40" , fill="navy"></rect>
+            <text x="60" , y="140" , fill="black">More Than 45%</text>
+        </g>
+    </svg>
+
+</body>
+
+</html>
