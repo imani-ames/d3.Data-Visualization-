@@ -1,4 +1,3 @@
-
 let countyURL = "https://cdn.freecodecamp.org/testable-projects-fcc/data/choropleth_map/counties.json";
 let educationURL = "https://cdn.freecodecamp.org/testable-projects-fcc/data/choropleth_map/for_user_education.json";
 
@@ -6,9 +5,10 @@ let countyData
 let educationData
 
 let canvas = d3.select("#canvas");
-let tooltip = d3.select("#tooltip");
+let tooltip = d3.select('#tooltip');
 
 let drawMap = () => {
+
     canvas.selectAll('path')
         .data(countyData)
         .enter()
@@ -22,13 +22,13 @@ let drawMap = () => {
             })
             let percentage = county['bachelorsOrHigher']
             if (percentage <= 15) {
-                return 'skyblue'
+                return '#A9D6E5'
             } else if (percentage <= 30) {
-                return 'mediumseagreen'
+                return '#61A5C2'
             } else if (percentage <= 45) {
-                return 'mediumslateblue'
+                return '#014f86'
             } else {
-                return 'navy'
+                return '#013a63'
             }
         })
         .attr('data-fips', (countyDataItem) => {
@@ -51,27 +51,35 @@ let drawMap = () => {
                 return item['fips'] === id
             })
 
-        }
+            tooltip.text(county['fips'] + ' - ' + county['area_name'] + ', ' + county['state'] + ' : ' + county['bachelorsOrHigher'] + '%')
+
+            tooltip.attr('data-education', county['bachelorsOrHigher'])
+        })
+        .on('mouseout', (countyDataItem) => {
+            tooltip.transition()
+                .style('visibility', 'hidden')
+        })
+}
 
 d3.json(countyURL).then(
-            (data, error) => {
-                if (error) {
-                    console.log(log)
-                } else {
-                    countyData = topojson.feature(data, data.objects.counties).features
-                    console.log(countyData)
+    (data, error) => {
+        if (error) {
+            console.log(log)
+        } else {
+            countyData = topojson.feature(data, data.objects.counties).features
+            console.log(countyData)
 
-                    d3.json(educationURL).then(
-                        (data, error) => {
-                            if (error) {
-                                console.log(error)
-                            } else {
-                                educationData = data
-                                console.log(educationData)
-                                drawMap()
-                            }
-                        }
-                    )
+            d3.json(educationURL).then(
+                (data, error) => {
+                    if (error) {
+                        console.log(log)
+                    } else {
+                        educationData = data
+                        console.log(educationData)
+                        drawMap()
+                    }
                 }
-            }
-        )
+            )
+        }
+    }
+)

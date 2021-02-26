@@ -18,9 +18,11 @@ body {
 }
 
 svg {
-    background-color: honeydew;
+    background-color: #f8f7f9;
 }
 
 #tooltip{
     visibility: hidden;
+    height: auto;
+    width: auto;
 }
