@@ -17,31 +17,37 @@
     <div id='description'>
         Levels of education attainment of US adults over 25 (2010 - 2014).
     </div>
-    <div id='tooltip'>
+    <div id="container">
+        <svg id='canvas'>
+
+        </svg>
+
+        <div id='right'>
+            <div id='tooltip'>
+
+            </div>
+            <svg id='legend'>
+                <g>
+                    <rect x="10" y="0" width="40" height="40" fill="#A9D6E5"></rect>
+                    <text x="60" y="20" fill="black">Less than 15%</text>
+                </g>
+                <g>
+                    <rect x="10" y="40" width="40" height="40" fill="#61A5C2"></rect>
+                    <text x="60" y="60" fill="black">Between 15% and 30%</text>
+                </g>
+                <g>
+                    <rect x="10" y="80" width="40" height="40" fill="#014f86"></rect>
+                    <text x="60" y="100" fill="black">Between 30% and 45%</text>
+                </g>
+                <g>
+                    <rect x="10" y="120" width="40" height="40" fill="#013a63"></rect>
+                    <text x="60" y="140" fill="black">Over 45%</text>
+                </g>
+            </svg>
+
+        </div>
 
     </div>
-    <svg id='canvas'>
-
-    </svg>
-    <svg id='legend'>
-        <g>
-            <rect x="10" y="0" width="40" height="40" fill="#A9D6E5"></rect>
-            <text x="60" y="20" fill="black">Less than 15%</text>
-        </g>
-        <g>
-            <rect x="10" y="40" width="40" height="40" fill="#61A5C2"></rect>
-            <text x="60" y="60" fill="black">Between 15% and 30%</text>
-        </g>
-        <g>
-            <rect x="10" y="80" width="40" height="40" fill="#014f86"></rect>
-            <text x="60" y="100" fill="black">Between 30% and 45%</text>
-        </g>
-        <g>
-            <rect x="10" y="120" width="40" height="40" fill="#013a63"></rect>
-            <text x="60" y="140" fill="black">Over 45%</text>
-        </g>
-    </svg>
-
 </body>
 <script src="script.js" defer></script>
 
